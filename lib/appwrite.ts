@@ -20,7 +20,8 @@ export const account = new Account(client)
 export async function login(){
     try{
         const redirectUri = Linkin.createURL('/');
-        const response = await account.createOAuth2Token(OAuthProvider.Google, redirectUri)
+        const response = await account.createOAuth2Token(OAuthProvider.Google, redirectUri);
+
         if (!response) throw new Error("Faild login");
         const browserResult = await openAuthSessionAsync(response.toString(), redirectUri);
         if(browserResult.type !== 'success') throw new Error("Login failed");
@@ -50,7 +51,7 @@ export async function logout(){
     }
 }
 
-export async function getUser(){
+export async function getCurrentUser(){
     try {
         const response = await account.get();
         if(response.$id){
@@ -61,10 +62,11 @@ export async function getUser(){
             }
         }
     } catch (error) {
-        
+        console.error(error);
+        return null;
     }
 }
 
-export async function getCurrentUser(){
+// export async function getCurrentUser(){
     
-}
+// }
