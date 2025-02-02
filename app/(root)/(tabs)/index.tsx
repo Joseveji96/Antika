@@ -6,7 +6,6 @@ import icons from "@/constants/icons";
 import images from "@/constants/images";
 import { getLatestProperties, getProperties } from "@/lib/appwrite";
 import { useGlobalContext } from "@/lib/global-provider";
-import seed from "@/lib/seed";
 import { useAppwrite } from "@/lib/useAppwrite";
 import { Link, router, useLocalSearchParams } from "expo-router";
 import React, { useEffect } from "react";
